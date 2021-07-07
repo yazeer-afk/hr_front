@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from 'antd';
+import SignView from './views/SignView';
 
 function App() {
   return (
     <div className="mr-32 ml-32">
-      <Button type="primary">Bruh</Button>
+      <SignView/>
     </div>
   );
 }
