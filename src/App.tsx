@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button } from 'antd';
+// import SignView from './views/SignView';
+import {PageRouter} from "./router/PageRouter";
 
 function App() {
   return (
     <div>
-      <Button type="primary">Bruh</Button>
+      {/*<SignView/>*/}
+        <PageRouter/>
     </div>
   );
 }
