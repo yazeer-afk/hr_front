@@ -1,10 +1,12 @@
 import React from 'react';
-import SignView from './views/SignView';
+// import SignView from './views/SignView';
+import {PageRouter} from "./router/PageRouter";
 
 function App() {
   return (
-    <div className="mr-32 ml-32">
-      <SignView/>
+    <div>
+      {/*<SignView/>*/}
+        <PageRouter/>
     </div>
   );
 }

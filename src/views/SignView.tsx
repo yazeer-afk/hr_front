@@ -6,7 +6,7 @@ import SignupForm from '../forms/SignupForm';
 const SignView: FC = () => {
 
     return (
-        <div>
+        <div className="mr-32 ml-32">
             <Row gutter={12}>
                 <Col span={12}>
                     <SignupForm />
