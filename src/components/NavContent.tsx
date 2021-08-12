@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Route, Switch,} from "react-router-dom";
-import {LeaveTypeForm} from "../forms/LeaveTypeForm";
+import {PerformanceForm} from "../forms/PerformanceForm";
 
 /**
  *
@@ -28,7 +28,7 @@ export const NavContent: FC<NavContentProps> = () => {
                     Users
                 </Route>
                 <Route path="/">
-                    <LeaveTypeForm/>
+                    <PerformanceForm/>
                 </Route>
             </Switch>
         </>
