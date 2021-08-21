@@ -1,11 +1,24 @@
 import React, { FC } from 'react';
 import { Form, Input, Button } from 'antd';
 import {Rule} from "antd/es/form";
+import axios from 'axios'
+import {REGISTER_USER} from "../util/endpoints";
 
 const SignupForm: FC = () => {
 
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+
+        axios.post(REGISTER_USER, values )
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        console.log(values)
       };
     
       const onFinishFailed = (errorInfo: any) => {
@@ -15,11 +28,6 @@ const SignupForm: FC = () => {
       const emailRules: Rule[] = [
           {type: "email", message: "E-mail format is wrong!"},
           {required: true, message: "E-mail is required!"}
-      ]
-      const contactRules: Rule[] = [
-          {required: true, message: "Contact number is required!"},
-          {min: 10, message: "Contact number format is wrong!"},
-          {max: 10, message: "Contact number format is wrong!"},
       ]
 
     return (
@@ -33,25 +41,13 @@ const SignupForm: FC = () => {
         >
             <Form.Item
                 label="Full Name"
-                name="fullName"
-                rules={[{ required: true, message: 'Please provide your username!' }]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                label="Username"
-                name="username"
+                name="name"
                 rules={[{ required: true, message: 'Please provide your username!' }]}
             >
                 <Input />
             </Form.Item>
 
             <Form.Item label="E-mail" name="email" rules={emailRules}>
-                <Input />
-            </Form.Item>
-
-            <Form.Item label="Contact Number" name="contactNo" rules={contactRules}>
                 <Input />
             </Form.Item>
 

@@ -1,8 +1,9 @@
 import React, {FC} from 'react';
-import {
-    Switch,
-    Route,
-} from "react-router-dom";
+import {Route, Switch,} from "react-router-dom";
+import {DepartmentForm} from "../forms/DepartmentForm";
+import {DesignationForm} from "../forms/DesignationForm";
+import {ShiftTypeForm} from "../forms/ShiftTypeForm";
+import {UpdateEmployeeForm} from "../forms/UpdateEmployeeForm";
 
 /**
  *
@@ -25,13 +26,12 @@ export const NavContent: FC<NavContentProps> = () => {
 		<>
             <Switch>
                 <Route path="/house">
-                    house
                 </Route>
                 <Route path="/users">
                     Users
                 </Route>
                 <Route path="/">
-                    home
+                    <UpdateEmployeeForm/>
                 </Route>
             </Switch>
         </>
