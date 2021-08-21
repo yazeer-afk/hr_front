@@ -1,5 +1,7 @@
 import React, {FC} from "react";
 import {Button, Card, Form, Input} from 'antd';
+import axios from "axios";
+import {ADD_DESIGNATION} from "../util/endpoints";
 
 /**
  *
@@ -21,13 +23,13 @@ export const DesignationForm: FC<DesignationFormProps> = () => {
 
     const onFinish = (values: any) => {
 
-        /**
-         * TODO
-         * manually add `status` short
-         * needs field validation
-         * make httpRequest
-         * */
-
+        axios.post(ADD_DESIGNATION, values)
+            .then((resp) => {
+                console.log(resp)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         console.log('Success:', values);
     };
 
@@ -54,7 +56,7 @@ export const DesignationForm: FC<DesignationFormProps> = () => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Salary"
+                    label="Salary (Rs.)"
                     name="salary"
                     rules={[{required: true, message: 'Please provide the amount of salary!'}]}
                 >
@@ -65,14 +67,6 @@ export const DesignationForm: FC<DesignationFormProps> = () => {
                     label="Hours of work"
                     name="workHours"
                     rules={[{required: true, message: 'Please provide how many hours of work allocated to the designation!'}]}
-                >
-                    <Input/>
-                </Form.Item>
-
-                <Form.Item
-                    label="OT Rate"
-                    name="otRate"
-                    rules={[{required: true, message: 'Please provide the ot rate!'}]}
                 >
                     <Input/>
                 </Form.Item>

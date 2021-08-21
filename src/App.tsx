@@ -1,5 +1,5 @@
 import React from 'react';
-// import SignView from './views/SignView';
+import SignView from './views/SignView';
 import {PageRouter} from "./router/PageRouter";
 
 function App() {

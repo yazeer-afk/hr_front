@@ -1,5 +1,7 @@
 import React, {FC} from "react";
 import {Button, Card, Form, Input} from 'antd';
+import axios from "axios";
+import {ADD_SHIFT} from "../util/endpoints";
 
 /**
  *
@@ -21,10 +23,13 @@ export const ShiftTypeForm: FC<ShiftTypeFormProps> = () => {
 
     const onFinish = (values: any) => {
 
-        /**
-         * TODO
-         * make HttpRequest
-         * */
+        axios.post(ADD_SHIFT, values)
+            .then((resp) => {
+                console.log(resp)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         console.log('Success:', values);
     };
 

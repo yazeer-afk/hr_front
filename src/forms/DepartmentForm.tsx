@@ -1,5 +1,7 @@
 import React, {FC} from "react";
 import {Button, Card, Form, Input} from 'antd';
+import axios from "axios";
+import {ADD_DEPARTMENT} from "../util/endpoints";
 
 /**
  *
@@ -20,6 +22,15 @@ interface FormValues {
 export const DepartmentForm: FC<DepartmentFormProps> = () => {
 
     const onFinish = (values: any) => {
+
+        axios.post(ADD_DEPARTMENT, values)
+            .then((resp) => {
+                console.log(resp);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
         console.log('Success:', values);
     };
 
@@ -39,7 +50,7 @@ export const DepartmentForm: FC<DepartmentFormProps> = () => {
         >
             <Form.Item
                 label="Department Name"
-                name="fullName"
+                name="name"
                 rules={[{ required: true, message: 'Please provide a name for the department!' }]}
             >
                 <Input />
